@@ -1,0 +1,30 @@
+import { Button, VerticalBox } from "std-widgets.slint";
+
+export component AppWindow inherits Window {
+    width: 250px;
+    height: 100px;
+
+    in-out property <bool> status: true;
+    private property <string> status_open: "RUNNING";
+    private property <string> status_close: "PAUSED";
+    callback request-start();
+    callback request-stop();
+
+    VerticalBox {
+        if root.status: foo := Text {text: "Status: \{status_open}";}
+        if !root.status: Text {text: "Status: \{status_close}";}
+
+        Button {
+            text: "Start";
+            clicked => {
+                root.request-start();
+            }
+        }
+        Button {
+            text: "Stop";
+            clicked => {
+                root.request-stop();
+            }
+        }
+    }
+}

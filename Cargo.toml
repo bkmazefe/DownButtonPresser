@@ -1,0 +1,16 @@
+[package]
+name = "graph-looper"
+version = "0.1.0"
+edition = "2021"
+build = "build.rs"
+
+
+[dependencies]
+enigo = "0.2.1"
+slint = "1.7.2"
+
+[build-dependencies]
+slint-build = "1.7.2"
+
+[package.metadata.bundle]
+name = "Grafik Gecici"
